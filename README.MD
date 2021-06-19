@@ -22,6 +22,8 @@ GRANT ALL PRIVILEGES ON DATABASE songsdb TO developer;
 
 psql --username developer --dbname songsdb
 
+TRUNCATE songs;
+
 # crate migration file
 
 npm run migrate create "create table songs"

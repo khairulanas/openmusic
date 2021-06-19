@@ -37,7 +37,7 @@ class SongsService {
   }
 
   async getSongs() {
-    const result = await this._pool.query('SELECT * FROM songs');
+    const result = await this._pool.query('SELECT id, title, performer FROM songs');
     return result.rows.map(mapDBToModel);
   }
 
@@ -49,7 +49,7 @@ class SongsService {
 
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError('lagu tidak ditemukan');
     }
 
@@ -67,7 +67,7 @@ class SongsService {
 
     const result = await this._pool.query(query);
 
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError('Gagal memperbarui lagu. Id tidak ditemukan');
     }
   }
@@ -79,7 +79,7 @@ class SongsService {
     };
 
     const result = await this._pool.query(query);
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new NotFoundError('lagu gagal dihapus. Id tidak ditemukan');
     }
   }
