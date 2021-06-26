@@ -1,4 +1,6 @@
-# init 
+# v1
+
+## init 
 
 npm init -y
 
@@ -8,7 +10,7 @@ npm install eslint nodemon --save-dev
 
 npx eslint --init
 
-# postgres
+## postgres
 
 psql --username postgres
 
@@ -24,8 +26,26 @@ psql --username developer --dbname songsdb
 
 TRUNCATE songs;
 
-# crate migration file
+## crate migration file
 
 npm run migrate create "create table songs"
 
 npm run migrate up
+
+# v2
+
+## users + auth
+
+npm run migrate create "create table users"
+
+npm run migrate up
+
+npm install bcrypt
+
+npm run migrate create "create table authentications"
+
+npm run migrate up
+
+npm install @hapi/jwt
+
+require('crypto').randomBytes(64).toString('hex');
