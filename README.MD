@@ -48,4 +48,24 @@ npm run migrate up
 
 npm install @hapi/jwt
 
+node 
+
 require('crypto').randomBytes(64).toString('hex');
+
+truncate songs, users, authentications;
+
+## playlist + collaborator + playlist-song
+
+npm run migrate create "create table playlists"
+
+npm run migrate up
+
+npm run migrate create "create collaborations table"
+
+npm run migrate up
+
+npm run migrate create "create playlistsongs table"
+
+npm run migrate up
+
+truncate songs, users, authentications, playlists, collaborations, playlistsongs;
