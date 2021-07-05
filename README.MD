@@ -69,3 +69,7 @@ npm run migrate create "create playlistsongs table"
 npm run migrate up
 
 truncate songs, users, authentications, playlists, collaborations, playlistsongs;
+
+# v3
+
+npm install amqplib @hapi/inert redis
