@@ -17,7 +17,7 @@ class ExportsHandler {
 
       this._validator.validateExportPlaylistPayload(request.payload);
       const message = {
-        userId: request.auth.credentials.id,
+        playlistId,
         targetEmail: request.payload.targetEmail,
       };
 
