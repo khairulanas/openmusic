@@ -73,3 +73,9 @@ truncate songs, users, authentications, playlists, collaborations, playlistsongs
 # v3
 
 npm install amqplib @hapi/inert redis
+
+# testing
+
+drop table authentications,collaborations,pgmigrations,playlists,playlistsongs,songs,users;
+
+truncate authentications,collaborations,pgmigrations,playlists,playlistsongs,songs,users;
