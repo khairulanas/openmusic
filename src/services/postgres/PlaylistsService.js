@@ -147,7 +147,11 @@ class PlaylistsService {
         values: [playlistId],
       };
       const result = await this._pool.query(query);
-      return result.rows.map(mapDBToModel);
+      const mappedResult = result.rows.map(mapDBToModel);
+
+      await this._cacheService.set(`playlist:${playlistId}`, JSON.stringify(mappedResult));
+
+      return mappedResult;
     }
   }
 
